@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Sample Spot The Ball Layout</title>
+    <style type="text/css">
+        .container {
+            width: 700px;
+            height: 350px; 
+            overflow: hidden;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .containerFooter {
+            width: 700px;
+            height: 40px; 
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .header{
+            width: 100%;
+            height: 56px;
+            background-color:silver;
+            position: absolute;
+            top:0px; left: 0px;
+        }
+        .leftSide{
+            width: 255px;
+            height: 294px;
+            position: absolute;
+            top:0px; left:0px;
+            background-color:steelblue;
+        }
+        .rightSide{
+            width: 445px;
+            height: 294px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            background-color:green;
+        }
+        .menu {
+            display:none;
+            position: absolute;
+            width: 300px;
+            height: 350px;
+            top: 0px;
+            right: 0px;
+            background-color:darkred;
+            z-index: 1000;
+        }
+        .menuIcon {
+            width: 50px;
+            height: 50px;
+            background-image:url('menu.png');
+            background-size: 50px 50px;
+            margin:3px;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            background-color:none;
+            cursor: pointer;
+        }
+        .login {
+            display:block;
+            max-width:700px;
+            max-height:294px;
+            top:56px; left:0px;
+            position: absolute;
+        }
+        .game {
+            display:none;
+            max-width:700px;
+            max-height:294px;
+            top:56px; left:0px;
+            position: absolute;
+        }
+        .leaderboards {
+            display:none;
+            max-width:700px;
+            max-height:294px;
+            top:56px; left:0px;
+            position: absolute;
+        }
+        .partners {
+            display:none;
+            max-width:700px;
+            max-height:294px;
+            top:56px; left:0px;
+            position: absolute;
+        }
+        .terms {
+            display:none;
+            max-width:700px;
+            max-height:294px;
+            top:56px; left:0px;
+            position: absolute;
+        }
+        .privacy {
+            display:none;
+            max-width:700px;
+            max-height:294px;
+            top:56px; left:0px;
+            position: absolute;
+        }
+        .menu h3 a {
+            color:white;
+            font-weight: bold;
+            margin-left:10px;
+        }
+        .menu h2 a {
+            color:#222;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="header">
+            <span id="menuIcon" class="menuIcon"></span>
+        </div>
+        <div id="login" class="login">
+            My Login View
+        </div>
+        <div id="game" class="game">
+            <div class="leftSide"></div>
+            <div class="rightSide"></div>
+        </div>
+        <div id="leaderboards" class="leaderboards">
+            Leader Boards
+        </div>
+        <div id="partners" class="partners">
+            Partners
+        </div>
+        <div id="terms" class="terms">
+            Terms and Conditions
+        </div>
+        <div id="privacy" class="privacy">
+            Privacy Policy
+        </div>
+        <div id="menu" class="menu"><h2>Menu</h2>
+            <h3><a href="#" id="gameButton">Play Game</a></h3>
+            <h3><a href="#" id="leaderButton">Leaderboards</a></h3>
+            <h3><a href="#" id="partnerButton">Partners</a></h3>
+        </div>
+    </div>
+    <div class="containerFooter">Copyright © 2018 BlocSide Sports. All rights reserved.
+            <a href="#" id="privacyButton">Privacy Policy</a> |  <a href="#" id="termsButton">Terms & Conditions</a></div>
+
+    <script>
+        document.getElementById("menuIcon").onclick = function() {menuToggle()};
+        document.getElementById("privacyButton").onclick = function() {showPrivacy()};
+        document.getElementById("termsButton").onclick = function() {showTerms()};
+        document.getElementById("gameButton").onclick = function() {showGame()};
+        document.getElementById("leaderButton").onclick = function() {showLeaderboard()};
+        document.getElementById("partnerButton").onclick = function() {showPartners()};
+        
+
+        function menuToggle(){
+            var x = document.getElementById("menu");
+            var y = document.getElementById("menuIcon");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.style.right = "300px";
+            } else {
+                x.style.display = "none";
+                y.style.right = "0px";
+            }
+        }
+        function showGame(){
+            hideAll();
+            var a = document.getElementById("game");
+            a.style.display = "block";
+        }
+        function showLeaderboard(){
+            hideAll();
+            var a = document.getElementById("leaderboards");
+            a.style.display = "block";
+        }
+        function showPartners(){
+            hideAll();
+            var a = document.getElementById("partners");
+            a.style.display = "block";
+        }
+        function showWelcome(){
+            hideAll();
+            var a = document.getElementById("login");
+            a.style.display = "block";
+        }
+        function showTerms(){
+            hideAll();
+            var a = document.getElementById("terms");
+            a.style.display = "block";
+        }
+        function showPrivacy(){
+            hideAll();
+            var a = document.getElementById("privacy");
+            a.style.display = "block";
+        }
+        function hideAll(){
+            var a = document.getElementById("login");
+            var b = document.getElementById("game");
+            var c = document.getElementById("leaderboards");   
+            var d = document.getElementById("partners");
+            var e = document.getElementById("terms");
+            var f = document.getElementById("privacy");
+            var x = document.getElementById("menu");
+            var y = document.getElementById("menuIcon");
+            a.style.display = "none"
+            b.style.display = "none"
+            c.style.display = "none"
+            d.style.display = "none"
+            e.style.display = "none"
+            f.style.display = "none"
+            x.style.display = "none"
+            y.style.right = "0px";
+        }
+    </script>
+  </body>
+</html>
